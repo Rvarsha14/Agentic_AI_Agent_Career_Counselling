@@ -1,6 +1,6 @@
 # 🎓 Stride — IBM AI Career Counseling Companion
 
-> An AI-powered agentic career counseling web application built with **Python Flask** and **IBM Watsonx.ai (Granite models)**.
+> An AI-powered agentic career counseling web application built with **Python Flask** and **IBM Watsonx.ai (Llama models)**.
 
 ---
 
@@ -8,7 +8,7 @@
 
 | Feature | Description |
 |---|---|
-| 🤖 **AI Agent (Stride)** | Conversational career counselor powered by IBM Granite LLM |
+| 🤖 **AI Agent (Stride)** | Conversational career counselor powered by IBM Llama LLM |
 | 📊 **Career Market Dashboard** | Visual charts of 10 career pathways with salary & growth data |
 | ⚡ **Skill Gap Tracker** | Interactive self-assessment tool with personalized gap analysis |
 | 📈 **Industry Trends 2025** | Curated WEF/BLS/McKinsey trend cards with sourced statistics |
@@ -198,8 +198,8 @@ CMD ["gunicorn", "-w", "2", "-b", "0.0.0.0:5000", "--timeout", "120", "app:app"]
 Build and run:
 
 ```bash
-docker build -t aria-career-agent .
-docker run -p 5000:5000 --env-file .env aria-career-agent
+docker build -t stride-career-agent .
+docker run -p 5000:5000 --env-file .env stride-career-agent
 ```
 
 ### Option D: IBM Code Engine (Recommended for IBM projects)
@@ -207,11 +207,11 @@ docker run -p 5000:5000 --env-file .env aria-career-agent
 ```bash
 # Install IBM Cloud CLI + Code Engine plugin, then:
 ibmcloud login
-ibmcloud ce project create --name aria-career-agent
+ibmcloud ce project create --name stride-career-agent
 ibmcloud ce app create \
-  --name aria-app \
-  --image icr.io/your-namespace/aria-career-agent:latest \
-  --env-from-secret aria-secrets \
+  --name stride-app \
+  --image icr.io/your-namespace/stride-career-agent:latest \
+  --env-from-secret stride-secrets \
   --port 5000
 ```
 
@@ -274,4 +274,4 @@ MIT License — Free for educational and personal use.
 
 ---
 
-*Built with IBM Watsonx.ai · Flask · Bootstrap 5 · Granite LLM*
+*Built with IBM Watsonx.ai · Flask · Bootstrap 5 · Llama LLM*

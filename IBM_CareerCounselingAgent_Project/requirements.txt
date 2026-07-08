@@ -1,0 +1,16 @@
+flask>=3.0.0
+flask-session==0.5.0
+python-dotenv>=1.0.0
+ibm-watsonx-ai>=1.1.2
+requests>=2.31.0
+gunicorn>=21.2.0
+
+# ── Notes ──────────────────────────────────────────────────────────────────
+# ibm-watsonx-ai requires pandas<2.2.0 and numpy, which need a C compiler
+# to build from source on Python 3.12+.
+# On Python 3.15 (pre-release) no prebuilt wheels exist yet.
+# The app handles this gracefully: it runs in Demo Mode if the SDK cannot
+# import numpy. To get full AI inference, use Python 3.11 or 3.12 where
+# prebuilt wheels are available, or install with:
+#   pip install ibm-watsonx-ai --no-deps
+#   pip install ibm-cos-sdk ibm-cos-sdk-core ibm-cos-sdk-s3transfer httpx lomond tabulate tqdm

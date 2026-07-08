@@ -1,0 +1,316 @@
+{
+  "metadata": {
+    "version": "2025-Q1",
+    "description": "Curated labor-market and industry-trend dataset for IBM Career Counseling Agent.",
+    "sources": [
+      "World Economic Forum – Future of Jobs Report 2025",
+      "U.S. Bureau of Labor Statistics Occupational Outlook Handbook 2024-25",
+      "LinkedIn Jobs on the Rise 2024",
+      "Stack Overflow Developer Survey 2024",
+      "McKinsey Global Institute – AI and the Future of Work 2024"
+    ],
+    "disclaimer": "This dataset is curated for demonstration purposes. Statistics are sourced from the references above and are accurate as of Q1 2025. Do not rely on these figures for financial or legal decisions."
+  },
+  "career_pathways": [
+    {
+      "id": "AI_ML_ENGINEER",
+      "title": "AI / Machine Learning Engineer",
+      "domain": "Technology",
+      "description": "Design, build, and deploy machine learning models and AI systems that power intelligent applications.",
+      "outlook": {
+        "projected_growth_pct": 40,
+        "growth_period": "2023–2033",
+        "median_annual_salary_usd": 136620,
+        "demand_level": "Very High",
+        "source": "BLS Occupational Outlook 2024-25"
+      },
+      "required_skills": {
+        "technical": ["Python", "Machine Learning", "Deep Learning", "TensorFlow/PyTorch", "MLOps", "Statistics", "Cloud Platforms (AWS/GCP/Azure)"],
+        "soft": ["Analytical thinking", "Communication", "Problem-solving", "Collaboration"]
+      },
+      "recommended_academics": ["Computer Science", "Mathematics", "Statistics", "Electrical Engineering", "Data Science"],
+      "entry_level_roles": ["Junior ML Engineer", "Data Scientist", "Research Associate – AI"],
+      "career_progression": ["ML Engineer → Senior ML Engineer → ML Tech Lead → Principal AI Architect"],
+      "industry_sectors": ["Big Tech", "Healthcare AI", "Finance/FinTech", "Autonomous Systems", "Research Labs"],
+      "certifications": ["IBM AI Engineering Professional Certificate", "Google Professional ML Engineer", "AWS ML Specialty"],
+      "related_pathways": ["DATA_SCIENTIST", "CLOUD_ARCHITECT"],
+      "tags": ["AI", "ML", "deep learning", "Python", "data", "research", "autonomous"]
+    },
+    {
+      "id": "DATA_SCIENTIST",
+      "title": "Data Scientist",
+      "domain": "Technology / Analytics",
+      "description": "Extract actionable insights from complex datasets using statistical analysis, visualization, and predictive modeling.",
+      "outlook": {
+        "projected_growth_pct": 36,
+        "growth_period": "2023–2033",
+        "median_annual_salary_usd": 108020,
+        "demand_level": "Very High",
+        "source": "BLS Occupational Outlook 2024-25"
+      },
+      "required_skills": {
+        "technical": ["Python", "R", "SQL", "Machine Learning", "Data Visualization (Tableau/Power BI)", "Statistics", "Spark/Hadoop"],
+        "soft": ["Storytelling with data", "Critical thinking", "Business acumen", "Curiosity"]
+      },
+      "recommended_academics": ["Statistics", "Mathematics", "Computer Science", "Economics", "Data Science"],
+      "entry_level_roles": ["Junior Data Analyst", "Data Analyst", "Business Intelligence Analyst"],
+      "career_progression": ["Data Analyst → Data Scientist → Senior Data Scientist → Data Science Manager → Chief Data Officer"],
+      "industry_sectors": ["Finance", "Healthcare", "E-Commerce", "Government", "Consulting"],
+      "certifications": ["IBM Data Science Professional Certificate", "Google Data Analytics Certificate", "Microsoft Certified: Azure Data Scientist"],
+      "related_pathways": ["AI_ML_ENGINEER", "BUSINESS_ANALYST"],
+      "tags": ["data", "analytics", "statistics", "SQL", "visualization", "insights", "business"]
+    },
+    {
+      "id": "SOFTWARE_ENGINEER",
+      "title": "Software Engineer",
+      "domain": "Technology",
+      "description": "Design, develop, test, and maintain software applications across web, mobile, embedded, and enterprise platforms.",
+      "outlook": {
+        "projected_growth_pct": 17,
+        "growth_period": "2023–2033",
+        "median_annual_salary_usd": 130160,
+        "demand_level": "High",
+        "source": "BLS Occupational Outlook 2024-25"
+      },
+      "required_skills": {
+        "technical": ["Python / Java / JavaScript / C++", "Data Structures & Algorithms", "System Design", "APIs & Microservices", "Git", "Cloud/DevOps basics"],
+        "soft": ["Teamwork", "Communication", "Attention to detail", "Time management"]
+      },
+      "recommended_academics": ["Computer Science", "Software Engineering", "Information Technology", "Mathematics"],
+      "entry_level_roles": ["Junior Software Developer", "Frontend/Backend Developer", "Associate Engineer"],
+      "career_progression": ["Junior Dev → Software Engineer → Senior Engineer → Staff/Principal Engineer → Engineering Manager/CTO"],
+      "industry_sectors": ["All sectors — IT Services, Product Companies, SaaS, Startups, Banking, Healthcare"],
+      "certifications": ["AWS Developer Associate", "Oracle Java Certified", "Microsoft Azure Developer"],
+      "related_pathways": ["AI_ML_ENGINEER", "CLOUD_ARCHITECT", "CYBERSECURITY_ANALYST"],
+      "tags": ["coding", "development", "web", "mobile", "software", "programming", "apps", "engineering"]
+    },
+    {
+      "id": "CLOUD_ARCHITECT",
+      "title": "Cloud Solutions Architect",
+      "domain": "Technology / Infrastructure",
+      "description": "Design and oversee cloud-based infrastructure strategies, ensuring scalability, security, and cost-efficiency for organizations migrating to or operating in the cloud.",
+      "outlook": {
+        "projected_growth_pct": 26,
+        "growth_period": "2023–2033",
+        "median_annual_salary_usd": 161000,
+        "demand_level": "Very High",
+        "source": "LinkedIn Jobs on the Rise 2024"
+      },
+      "required_skills": {
+        "technical": ["AWS / Azure / GCP", "Networking", "Security", "Terraform / IaC", "Kubernetes / Docker", "Linux", "Cost Optimization"],
+        "soft": ["Strategic thinking", "Stakeholder communication", "Leadership", "Documentation"]
+      },
+      "recommended_academics": ["Computer Science", "Information Systems", "Electrical Engineering", "Network Engineering"],
+      "entry_level_roles": ["Cloud Support Engineer", "DevOps Engineer", "Systems Administrator"],
+      "career_progression": ["Cloud Engineer → Solutions Architect → Principal Architect → VP of Infrastructure"],
+      "industry_sectors": ["Enterprise IT", "Finance", "Healthcare", "Government", "Startups"],
+      "certifications": ["AWS Solutions Architect (Associate/Professional)", "Google Professional Cloud Architect", "Azure Solutions Architect Expert"],
+      "related_pathways": ["SOFTWARE_ENGINEER", "CYBERSECURITY_ANALYST"],
+      "tags": ["cloud", "AWS", "Azure", "GCP", "infrastructure", "DevOps", "Kubernetes", "architecture"]
+    },
+    {
+      "id": "CYBERSECURITY_ANALYST",
+      "title": "Cybersecurity Analyst",
+      "domain": "Technology / Security",
+      "description": "Protect organizational systems and data from cyber threats by monitoring networks, analyzing vulnerabilities, and implementing security measures.",
+      "outlook": {
+        "projected_growth_pct": 32,
+        "growth_period": "2023–2033",
+        "median_annual_salary_usd": 120360,
+        "demand_level": "Very High",
+        "source": "BLS Occupational Outlook 2024-25"
+      },
+      "required_skills": {
+        "technical": ["Network Security", "SIEM Tools", "Ethical Hacking / Penetration Testing", "Python scripting", "Incident Response", "Cryptography"],
+        "soft": ["Attention to detail", "Analytical thinking", "Ethics & integrity", "Continuous learning"]
+      },
+      "recommended_academics": ["Computer Science", "Information Security", "Network Engineering", "Cybersecurity"],
+      "entry_level_roles": ["SOC Analyst (Tier 1)", "IT Security Analyst", "Junior Penetration Tester"],
+      "career_progression": ["SOC Analyst → Security Engineer → Senior Analyst → Security Architect → CISO"],
+      "industry_sectors": ["Government/Defense", "Finance", "Healthcare", "Critical Infrastructure", "All large enterprises"],
+      "certifications": ["CompTIA Security+", "CEH (Certified Ethical Hacker)", "CISSP", "Google Cybersecurity Certificate"],
+      "related_pathways": ["CLOUD_ARCHITECT", "SOFTWARE_ENGINEER"],
+      "tags": ["security", "hacking", "network", "protection", "cyber", "defense", "threat", "compliance"]
+    },
+    {
+      "id": "BIOMEDICAL_ENGINEER",
+      "title": "Biomedical Engineer",
+      "domain": "Engineering / Healthcare",
+      "description": "Apply engineering principles to healthcare by designing medical devices, prosthetics, imaging systems, and biotechnology solutions that improve patient outcomes.",
+      "outlook": {
+        "projected_growth_pct": 10,
+        "growth_period": "2023–2033",
+        "median_annual_salary_usd": 99550,
+        "demand_level": "Moderate-High",
+        "source": "BLS Occupational Outlook 2024-25"
+      },
+      "required_skills": {
+        "technical": ["Biology / Physiology", "Mechanical / Electrical Engineering", "CAD design", "Signal Processing", "Regulatory Knowledge (FDA, CE)", "Programming (MATLAB/Python)"],
+        "soft": ["Attention to detail", "Empathy", "Cross-disciplinary collaboration", "Report writing"]
+      },
+      "recommended_academics": ["Biomedical Engineering", "Mechanical Engineering", "Biology", "Electrical Engineering"],
+      "entry_level_roles": ["Junior Biomedical Engineer", "Medical Device Technician", "Clinical Engineer"],
+      "career_progression": ["Biomedical Technician → Engineer → Senior Engineer → R&D Lead → Director of Medical Devices"],
+      "industry_sectors": ["Medical Devices", "Pharmaceuticals", "Hospitals", "Research Institutions", "BioTech Startups"],
+      "certifications": ["Certified Biomedical Equipment Technician (CBET)", "FE/PE Exam", "ISO 13485 Lead Auditor"],
+      "related_pathways": ["DATA_SCIENTIST", "AI_ML_ENGINEER"],
+      "tags": ["bio", "medical", "health", "devices", "prosthetics", "hospital", "biology", "engineering"]
+    },
+    {
+      "id": "PRODUCT_MANAGER",
+      "title": "Product Manager",
+      "domain": "Business / Technology",
+      "description": "Lead the strategy, roadmap, and execution of a product by bridging customer needs with business goals and engineering capabilities.",
+      "outlook": {
+        "projected_growth_pct": 10,
+        "growth_period": "2023–2033",
+        "median_annual_salary_usd": 139870,
+        "demand_level": "High",
+        "source": "BLS + LinkedIn Jobs on the Rise 2024"
+      },
+      "required_skills": {
+        "technical": ["Agile / Scrum", "Data Analysis", "User Research", "Roadmapping", "A/B Testing", "Basic SQL / Analytics tools"],
+        "soft": ["Leadership", "Vision", "Prioritization", "Stakeholder management", "Empathy", "Communication"]
+      },
+      "recommended_academics": ["Business Administration", "Computer Science", "Engineering", "Psychology", "Marketing"],
+      "entry_level_roles": ["Associate Product Manager (APM)", "Product Analyst", "Business Analyst"],
+      "career_progression": ["APM → PM → Senior PM → Group PM → VP of Product → Chief Product Officer"],
+      "industry_sectors": ["Tech Companies", "SaaS", "E-Commerce", "Finance", "Healthcare Tech"],
+      "certifications": ["Certified Scrum Product Owner (CSPO)", "PMI-ACP", "Google Project Management Certificate"],
+      "related_pathways": ["BUSINESS_ANALYST", "DATA_SCIENTIST"],
+      "tags": ["product", "management", "strategy", "agile", "leadership", "business", "roadmap", "users"]
+    },
+    {
+      "id": "BUSINESS_ANALYST",
+      "title": "Business / Data Analyst",
+      "domain": "Business / Analytics",
+      "description": "Bridge business strategy and data insights by identifying inefficiencies, analyzing processes, and recommending data-driven improvements.",
+      "outlook": {
+        "projected_growth_pct": 11,
+        "growth_period": "2023–2033",
+        "median_annual_salary_usd": 95290,
+        "demand_level": "High",
+        "source": "BLS Occupational Outlook 2024-25"
+      },
+      "required_skills": {
+        "technical": ["SQL", "Excel / Google Sheets", "Data Visualization (Tableau/Power BI)", "Requirements Gathering", "Process Mapping", "Basic Python"],
+        "soft": ["Communication", "Stakeholder engagement", "Critical thinking", "Documentation"]
+      },
+      "recommended_academics": ["Business Administration", "Economics", "Information Systems", "Statistics", "Finance"],
+      "entry_level_roles": ["Junior Business Analyst", "Operations Analyst", "Reporting Analyst"],
+      "career_progression": ["Junior BA → Business Analyst → Senior BA → BA Manager → Director of Strategy"],
+      "industry_sectors": ["Consulting", "Finance", "Healthcare", "Retail", "Government"],
+      "certifications": ["IIBA ECBA/CBAP", "PMI PBA", "Microsoft Certified: Power BI Data Analyst"],
+      "related_pathways": ["DATA_SCIENTIST", "PRODUCT_MANAGER"],
+      "tags": ["business", "analysis", "SQL", "Excel", "reporting", "process", "requirements", "strategy"]
+    },
+    {
+      "id": "UX_DESIGNER",
+      "title": "UX / UI Designer",
+      "domain": "Design / Technology",
+      "description": "Create intuitive, accessible, and visually compelling digital experiences by researching user behavior and translating insights into wireframes, prototypes, and high-fidelity designs.",
+      "outlook": {
+        "projected_growth_pct": 8,
+        "growth_period": "2023–2033",
+        "median_annual_salary_usd": 98510,
+        "demand_level": "Moderate-High",
+        "source": "BLS + LinkedIn Jobs on the Rise 2024"
+      },
+      "required_skills": {
+        "technical": ["Figma / Adobe XD / Sketch", "User Research Methods", "Prototyping", "HTML/CSS basics", "Accessibility Standards", "Usability Testing"],
+        "soft": ["Empathy", "Creativity", "Attention to detail", "Collaboration", "Presentation skills"]
+      },
+      "recommended_academics": ["Design", "Graphic Design", "Psychology", "Human-Computer Interaction", "Fine Arts", "Communication"],
+      "entry_level_roles": ["Junior UX Designer", "UI Designer", "Visual Designer"],
+      "career_progression": ["Junior Designer → UX Designer → Senior UX Designer → UX Lead → Design Director"],
+      "industry_sectors": ["Tech Companies", "Agencies", "E-Commerce", "Healthcare Tech", "EdTech"],
+      "certifications": ["Google UX Design Certificate", "Interaction Design Foundation Certification", "Nielsen Norman UX Certification"],
+      "related_pathways": ["PRODUCT_MANAGER", "SOFTWARE_ENGINEER"],
+      "tags": ["design", "UX", "UI", "Figma", "prototype", "user research", "creative", "visual", "product"]
+    },
+    {
+      "id": "ENVIRONMENTAL_ENGINEER",
+      "title": "Environmental / Sustainability Engineer",
+      "domain": "Engineering / Environment",
+      "description": "Develop solutions to environmental challenges including pollution control, renewable energy systems, waste management, and sustainable infrastructure.",
+      "outlook": {
+        "projected_growth_pct": 7,
+        "growth_period": "2023–2033",
+        "median_annual_salary_usd": 96530,
+        "demand_level": "Moderate",
+        "source": "BLS Occupational Outlook 2024-25"
+      },
+      "required_skills": {
+        "technical": ["Environmental Regulations", "GIS", "Hydrology / Air Quality Modeling", "Chemistry", "Civil/Chemical Engineering", "Life Cycle Assessment"],
+        "soft": ["Sustainability mindset", "Report writing", "Stakeholder engagement", "Problem-solving"]
+      },
+      "recommended_academics": ["Environmental Engineering", "Civil Engineering", "Chemistry", "Environmental Science", "Chemical Engineering"],
+      "entry_level_roles": ["Environmental Technician", "Junior Environmental Engineer", "Sustainability Analyst"],
+      "career_progression": ["Technician → Engineer → Senior Engineer → Environmental Manager → Chief Sustainability Officer"],
+      "industry_sectors": ["Government/EPA", "Energy/Renewables", "Consulting", "Construction", "Manufacturing"],
+      "certifications": ["PE (Professional Engineer)", "LEED Accredited Professional", "Certified Environmental Scientist (CES)"],
+      "related_pathways": ["BIOMEDICAL_ENGINEER", "BUSINESS_ANALYST"],
+      "tags": ["environment", "sustainability", "green", "climate", "renewable", "energy", "ecology", "civil"]
+    }
+  ],
+  "skill_categories": {
+    "programming_languages": ["Python", "R", "JavaScript", "Java", "C++", "C#", "SQL", "MATLAB", "Go", "Rust", "TypeScript"],
+    "ai_ml_tools": ["TensorFlow", "PyTorch", "scikit-learn", "Keras", "Hugging Face", "LangChain", "OpenCV", "NLTK"],
+    "data_tools": ["Tableau", "Power BI", "Pandas", "NumPy", "Spark", "Hadoop", "dbt", "Airflow"],
+    "cloud_devops": ["AWS", "Azure", "GCP", "Docker", "Kubernetes", "Terraform", "CI/CD", "Linux"],
+    "design_tools": ["Figma", "Adobe XD", "Sketch", "InVision", "Zeplin"],
+    "soft_skills": ["Communication", "Leadership", "Teamwork", "Problem-solving", "Critical thinking", "Time management", "Adaptability", "Creativity"]
+  },
+  "industry_trends_2025": [
+    {
+      "trend": "Generative AI Integration",
+      "impact": "Transforming software development, content creation, and knowledge work. 65% of organizations plan to use GenAI tools by 2025.",
+      "top_roles_impacted": ["AI_ML_ENGINEER", "SOFTWARE_ENGINEER", "DATA_SCIENTIST", "UX_DESIGNER"],
+      "source": "McKinsey Global Institute 2024"
+    },
+    {
+      "trend": "Cloud & Edge Computing Expansion",
+      "impact": "Global cloud services market to reach $1.2 trillion by 2028. Edge computing deployments growing 35% YoY.",
+      "top_roles_impacted": ["CLOUD_ARCHITECT", "SOFTWARE_ENGINEER", "CYBERSECURITY_ANALYST"],
+      "source": "LinkedIn Jobs on the Rise 2024"
+    },
+    {
+      "trend": "Cybersecurity Talent Shortage",
+      "impact": "Global shortfall of 3.5 million cybersecurity professionals in 2024. Salaries rising 15% annually.",
+      "top_roles_impacted": ["CYBERSECURITY_ANALYST", "CLOUD_ARCHITECT"],
+      "source": "WEF Future of Jobs Report 2025"
+    },
+    {
+      "trend": "Green Jobs & Sustainability",
+      "impact": "Climate-driven policies expected to create 30 million new green jobs globally by 2030.",
+      "top_roles_impacted": ["ENVIRONMENTAL_ENGINEER", "BUSINESS_ANALYST"],
+      "source": "WEF Future of Jobs Report 2025"
+    },
+    {
+      "trend": "Data-Driven Decision Making",
+      "impact": "Demand for data literacy across all industries. Data roles expected to grow 36% through 2033.",
+      "top_roles_impacted": ["DATA_SCIENTIST", "BUSINESS_ANALYST", "PRODUCT_MANAGER"],
+      "source": "BLS Occupational Outlook 2024-25"
+    },
+    {
+      "trend": "Digital Health & MedTech",
+      "impact": "Global digital health market projected to reach $600 billion by 2030, driven by AI diagnostics and wearables.",
+      "top_roles_impacted": ["BIOMEDICAL_ENGINEER", "AI_ML_ENGINEER", "DATA_SCIENTIST"],
+      "source": "McKinsey Global Institute 2024"
+    }
+  ],
+  "academic_to_career_map": {
+    "Computer Science": ["AI_ML_ENGINEER", "SOFTWARE_ENGINEER", "DATA_SCIENTIST", "CLOUD_ARCHITECT", "CYBERSECURITY_ANALYST"],
+    "Mathematics": ["DATA_SCIENTIST", "AI_ML_ENGINEER", "BUSINESS_ANALYST"],
+    "Statistics": ["DATA_SCIENTIST", "BUSINESS_ANALYST", "AI_ML_ENGINEER"],
+    "Electrical Engineering": ["AI_ML_ENGINEER", "BIOMEDICAL_ENGINEER", "CLOUD_ARCHITECT"],
+    "Mechanical Engineering": ["BIOMEDICAL_ENGINEER", "ENVIRONMENTAL_ENGINEER"],
+    "Business Administration": ["PRODUCT_MANAGER", "BUSINESS_ANALYST"],
+    "Psychology": ["UX_DESIGNER", "PRODUCT_MANAGER"],
+    "Design": ["UX_DESIGNER", "PRODUCT_MANAGER"],
+    "Biology": ["BIOMEDICAL_ENGINEER", "ENVIRONMENTAL_ENGINEER"],
+    "Environmental Science": ["ENVIRONMENTAL_ENGINEER"],
+    "Information Systems": ["BUSINESS_ANALYST", "SOFTWARE_ENGINEER"],
+    "Economics": ["BUSINESS_ANALYST", "DATA_SCIENTIST", "PRODUCT_MANAGER"]
+  }
+}

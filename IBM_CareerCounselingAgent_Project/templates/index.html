@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stride — IBM AI Career Counseling Companion</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ─── TOP NAVBAR ──────────────────────────────────────────────────── -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+      <div class="brand-icon">
+        <i class="bi bi-cpu-fill"></i>
+      </div>
+      <div>
+        <span class="brand-name">{{ agent_name }}</span>
+        <span class="brand-sub">IBM Career AI</span>
+      </div>
+    </a>
+
+    <div class="d-flex align-items-center gap-3 ms-auto">
+      <!-- Nav tabs (desktop) -->
+      <ul class="nav nav-pills d-none d-lg-flex" id="mainNavTabs">
+        <li class="nav-item">
+          <button class="nav-link active" data-tab="chat" onclick="switchTab('chat')">
+            <i class="bi bi-chat-dots me-1"></i>Chat
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-tab="dashboard" onclick="switchTab('dashboard')">
+            <i class="bi bi-bar-chart-line me-1"></i>Dashboard
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-tab="skills" onclick="switchTab('skills')">
+            <i class="bi bi-lightning-charge me-1"></i>Skills
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-tab="trends" onclick="switchTab('trends')">
+            <i class="bi bi-graph-up-arrow me-1"></i>Trends
+          </button>
+        </li>
+      </ul>
+
+      <!-- Dark Mode Toggle -->
+      <button class="btn btn-icon" id="themeToggle" onclick="toggleTheme()" title="Toggle dark mode">
+        <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+      </button>
+
+      <!-- Status Indicator -->
+      <div class="status-badge" id="statusBadge">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">Connecting…</span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── MAIN CONTENT ─────────────────────────────────────────────────── -->
+<main class="main-container">
+
+  <!-- ══════════ TAB: CHAT ══════════════════════════════════════════════ -->
+  <div class="tab-pane-custom active" id="tab-chat">
+    <div class="chat-layout">
+
+      <!-- LEFT: Student Profile Card -->
+      <aside class="profile-sidebar d-none d-xl-flex">
+        <div class="sidebar-card">
+          <div class="sidebar-header">
+            <i class="bi bi-person-badge-fill me-2"></i>
+            <span>My Profile</span>
+          </div>
+          <div class="profile-avatar-wrap">
+            <div class="profile-avatar" id="profileAvatar">
+              <i class="bi bi-person-fill"></i>
+            </div>
+            <div class="profile-name" id="profileName">Student</div>
+            <div class="profile-session" id="profileSession">New Session</div>
+          </div>
+
+          <div class="sidebar-section">
+            <div class="sidebar-section-title">Academic Background</div>
+            <div class="profile-detail" id="profileAcademic">
+              <i class="bi bi-mortarboard-fill me-1 text-accent"></i>
+              <span>Not yet provided</span>
+            </div>
+          </div>
+
+          <div class="sidebar-section">
+            <div class="sidebar-section-title">Detected Skills</div>
+            <div id="profileSkillTags" class="tag-cloud">
+              <span class="tag-empty">Chat to reveal skills…</span>
+            </div>
+          </div>
+
+          <div class="sidebar-section">
+            <div class="sidebar-section-title">Top Match</div>
+            <div class="top-match-card" id="topMatchCard">
+              <div class="top-match-icon"><i class="bi bi-trophy-fill"></i></div>
+              <div class="top-match-text">Your #1 career match will appear here after counseling.</div>
+            </div>
+          </div>
+
+          <div class="sidebar-section mt-auto">
+            <button class="btn btn-outline-danger btn-sm w-100" onclick="clearSession()">
+              <i class="bi bi-arrow-counterclockwise me-1"></i>New Session
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- CENTER: Chat Area -->
+      <section class="chat-main">
+        <div class="chat-window" id="chatWindow">
+          <!-- Messages injected by JS -->
+          <div class="chat-empty-state" id="chatEmptyState">
+            <div class="empty-icon"><i class="bi bi-robot"></i></div>
+            <h4>Welcome to Stride</h4>
+            <p>Your AI-powered IBM Career Counseling Companion is ready.<br>Click <strong>Start Session</strong> to begin.</p>
+            <button class="btn btn-primary btn-lg start-btn" onclick="startSession()">
+              <i class="bi bi-play-circle-fill me-2"></i>Start Session
+            </button>
+          </div>
+        </div>
+
+        <!-- Typing indicator -->
+        <div class="typing-indicator" id="typingIndicator" style="display:none;">
+          <div class="typing-avatar"><i class="bi bi-cpu-fill"></i></div>
+          <div class="typing-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <span class="typing-text">Stride is thinking…</span>
+        </div>
+
+        <!-- Input area -->
+        <div class="chat-input-area" id="chatInputArea">
+          <div class="chat-input-wrapper">
+            <textarea
+              id="chatInput"
+              class="chat-input"
+              placeholder="Tell me about your academic background, skills, interests, and career goals…"
+              rows="1"
+              maxlength="4000"
+              onkeydown="handleInputKey(event)"
+              oninput="autoResizeTextarea(this)"
+              disabled
+            ></textarea>
+            <div class="chat-input-actions">
+              <span class="char-counter" id="charCounter">0/4000</span>
+              <button class="btn btn-send" id="sendBtn" onclick="sendMessage()" disabled>
+                <i class="bi bi-send-fill"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Quick prompts -->
+          <div class="quick-prompts" id="quickPrompts">
+            <span class="quick-label">Quick starts:</span>
+            <button class="quick-btn" onclick="insertQuickPrompt(this)">📚 Share my academic background</button>
+            <button class="quick-btn" onclick="insertQuickPrompt(this)">🛠️ List my technical skills</button>
+            <button class="quick-btn" onclick="insertQuickPrompt(this)">🎯 Explore career options for me</button>
+            <button class="quick-btn" onclick="insertQuickPrompt(this)">📊 Analyze my skill gaps</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT: Recommendations Panel -->
+      <aside class="recommendations-sidebar d-none d-xxl-flex">
+        <div class="sidebar-card">
+          <div class="sidebar-header">
+            <i class="bi bi-stars me-2"></i>
+            <span>Career Matches</span>
+          </div>
+          <div id="recommendationsList">
+            <div class="rec-empty">
+              <i class="bi bi-compass bi-lg"></i>
+              <p>Your personalized career matches will appear here during counseling.</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- ══════════ TAB: DASHBOARD ══════════════════════════════════════════ -->
+  <div class="tab-pane-custom" id="tab-dashboard">
+    <div class="page-header">
+      <h2 class="page-title"><i class="bi bi-bar-chart-line-fill me-2"></i>Career Market Dashboard</h2>
+      <p class="page-subtitle">Explore career pathways, salary benchmarks, and market demand from our curated dataset.</p>
+      <div class="dataset-badge" id="datasetBadge">
+        <i class="bi bi-database-check me-1"></i>
+        <span id="datasetVersionLabel">Loading dataset…</span>
+      </div>
+    </div>
+
+    <!-- Filter bar -->
+    <div class="filter-bar">
+      <div class="filter-group">
+        <label class="filter-label">Domain</label>
+        <select class="filter-select" id="domainFilter" onchange="filterCards()">
+          <option value="">All Domains</option>
+          <option value="Technology">Technology</option>
+          <option value="Business">Business / Analytics</option>
+          <option value="Engineering">Engineering</option>
+          <option value="Design">Design</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label">Sort By</label>
+        <select class="filter-select" id="sortFilter" onchange="filterCards()">
+          <option value="growth">Market Growth %</option>
+          <option value="salary">Median Salary</option>
+          <option value="demand">Demand Level</option>
+        </select>
+      </div>
+      <div class="filter-group ms-auto">
+        <input type="text" class="filter-search" id="searchFilter" placeholder="Search careers…" oninput="filterCards()" />
+      </div>
+    </div>
+
+    <!-- Career cards grid -->
+    <div class="career-cards-grid" id="careerCardsGrid">
+      <!-- Injected by JS -->
+      <div class="loading-spinner"><div class="spinner-border text-primary" role="status"></div></div>
+    </div>
+
+    <!-- Chart section -->
+    <div class="row g-4 mt-2">
+      <div class="col-lg-7">
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h5><i class="bi bi-bar-chart-fill me-2"></i>Market Growth & Salary Comparison</h5>
+          </div>
+          <div class="chart-container">
+            <svg id="salaryGrowthChart" width="100%" height="360"></svg>
+          </div>
+          <p class="chart-footnote">Bar: Projected job growth (%). Line: Median annual salary ($). Sources from curated dataset.</p>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h5><i class="bi bi-pie-chart-fill me-2"></i>Demand Level Distribution</h5>
+          </div>
+          <div class="chart-container d-flex align-items-center justify-content-center">
+            <svg id="demandPieChart" width="280" height="280"></svg>
+          </div>
+          <div id="pieLegend" class="pie-legend"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ TAB: SKILLS ═══════════════════════════════════════════ -->
+  <div class="tab-pane-custom" id="tab-skills">
+    <div class="page-header">
+      <h2 class="page-title"><i class="bi bi-lightning-charge-fill me-2"></i>Skill Gap Tracker</h2>
+      <p class="page-subtitle">Assess your current skills against a target career path and get a personalized learning roadmap.</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Left: Assessment form -->
+      <div class="col-lg-5">
+        <div class="skills-form-card">
+          <h5 class="skills-form-title">
+            <i class="bi bi-clipboard-check me-2"></i>Self-Assessment
+          </h5>
+
+          <div class="mb-4">
+            <label class="form-label-custom">Target Career Path</label>
+            <select class="form-select-custom" id="pathwaySelect">
+              <option value="">— Select a career pathway —</option>
+            </select>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label-custom">Your Current Skills</label>
+            <p class="form-hint">Click skills to select them, or type and press Enter to add custom ones.</p>
+            <div class="skill-category-tabs" id="skillCategoryTabs"></div>
+            <div class="skill-palette" id="skillPalette"></div>
+            <div class="skill-input-wrap mt-3">
+              <input type="text" class="form-control-custom" id="customSkillInput"
+                placeholder="Type a custom skill and press Enter…"
+                onkeydown="addCustomSkill(event)" />
+            </div>
+          </div>
+
+          <div class="selected-skills-section">
+            <div class="selected-label">Selected skills (<span id="selectedCount">0</span>):</div>
+            <div id="selectedSkillsDisplay" class="selected-tags">
+              <span class="tag-empty">No skills selected yet</span>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-analyze w-100 mt-4" onclick="runSkillAssessment()">
+            <i class="bi bi-search me-2"></i>Analyze My Skill Gap
+          </button>
+        </div>
+      </div>
+
+      <!-- Right: Results -->
+      <div class="col-lg-7">
+        <div class="skills-result-card" id="skillsResultArea">
+          <div class="skills-result-empty">
+            <i class="bi bi-bar-chart-steps"></i>
+            <p>Select a career pathway and your skills, then run the analysis to see your personalized gap report.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ TAB: TRENDS ════════════════════════════════════════════ -->
+  <div class="tab-pane-custom" id="tab-trends">
+    <div class="page-header">
+      <h2 class="page-title"><i class="bi bi-graph-up-arrow me-2"></i>Industry Trends 2025</h2>
+      <p class="page-subtitle">Key workforce trends from our curated dataset. All statistics are sourced from verified industry reports.</p>
+    </div>
+    <div class="trends-grid" id="trendsGrid">
+      <div class="loading-spinner"><div class="spinner-border text-primary" role="status"></div></div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ─── MOBILE BOTTOM NAV ─────────────────────────────────────────────── -->
+<nav class="mobile-bottom-nav d-lg-none">
+  <button class="mobile-nav-btn active" data-tab="chat" onclick="switchTab('chat')">
+    <i class="bi bi-chat-dots-fill"></i><span>Chat</span>
+  </button>
+  <button class="mobile-nav-btn" data-tab="dashboard" onclick="switchTab('dashboard')">
+    <i class="bi bi-bar-chart-line-fill"></i><span>Market</span>
+  </button>
+  <button class="mobile-nav-btn" data-tab="skills" onclick="switchTab('skills')">
+    <i class="bi bi-lightning-charge-fill"></i><span>Skills</span>
+  </button>
+  <button class="mobile-nav-btn" data-tab="trends" onclick="switchTab('trends')">
+    <i class="bi bi-graph-up-arrow"></i><span>Trends</span>
+  </button>
+</nav>
+
+<!-- ─── CAREER DETAIL MODAL ───────────────────────────────────────────── -->
+<div class="modal fade" id="careerDetailModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content career-modal">
+      <div class="modal-header career-modal-header" id="modalHeader">
+        <div>
+          <h4 class="modal-title" id="modalTitle"></h4>
+          <span class="modal-domain" id="modalDomain"></span>
+        </div>
+        <button type="button" class="btn-close-custom" data-bs-dismiss="modal">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer career-modal-footer">
+        <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+        <button class="btn btn-primary" id="modalAnalyzeBtn">
+          <i class="bi bi-lightning-charge me-1"></i>Analyze My Skill Gap
+        </button>
+        <button class="btn btn-success" id="modalChatBtn">
+          <i class="bi bi-chat-dots me-1"></i>Discuss with Stride
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── TOAST NOTIFICATIONS ──────────────────────────────────────────── -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastContainer"></div>
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom JS -->
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

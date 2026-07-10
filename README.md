@@ -28,7 +28,7 @@ IBM_CareerCounselingAgent_Project/
 ├── agent_instructions.py       ← 🎛️ CUSTOMIZE THE AGENT HERE
 ├── requirements.txt            ← Python dependencies
 ├── .env.example                ← Template for environment variables
-├── .env                        ← Your real credentials (never commit this!)
+├── .env                        ← Your real credentials 
 ├── .gitignore                  ← Excludes .env, sessions, __pycache__
 │
 ├── data/
